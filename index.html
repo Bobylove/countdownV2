@@ -6,16 +6,23 @@
 	<title>CountDown</title>
 </head>
 <body>
+	<span id="title"><b>Simplon Countdown</b></span>
 	<div class="Timer"><h1 id="putTime">1:30</h1></div>
 
 	<div class="BTN">
-		<button class="btnReset"> Reset</button>
-		<button class="btnClear"> Clear</button>
-		<button class="btnStart">Start</button>
-		<button class="btnStop">Stop</button>
+		<button class="btnReset"><b>Reset</b></button>
+		<button class="btnClear"><b>Clear</b></button>
+		<button class="btnStart"><b>Start</b></button>
+		<button class="btnStop"><b>Stop</b></button>
 	</div>
+
+	<div id="border">
+	<div id="loading">0%</div>
+	</div>
+
 	<input type="text" placeholder="Secondes" class="setSecondes">
-	<button id="setTime">SET</button>
+	<button id="setTime"><b>Get Time</b></button>
+
 	<script src="node_modules/jquery/dist/jquery.js"></script>
 	<script src ="app.js"></script>
 

@@ -14,14 +14,21 @@ $(document).ready(function(){
 			$('.btnStart').on('click', app.start);
 			$('.btnStop').on('click', app.stop);
 			$('.btnReset').on('click',app.reset);
+			$('.btnClear').on('click',app.clear);
 		},
 
 		start: function(){
 			app.intervalID = setInterval(app.decrement, 1000);
+			app.progressBar();
 		},
 
 		stop: function(){
 			clearInterval(app.intervalID);
+		},
+		clear: function(){
+			app.stop();
+			$('#putTime').text("1:30");
+			$('.setSecondes').val("");
 			timer = 90;
 		},
 
@@ -46,6 +53,11 @@ $(document).ready(function(){
 			var secondes= $('.setSecondes').val();
 			timer = parseInt(minutes*60 + secondes ); 
 			$('#putTime').text($('.setSecondes').val() + ' ' + 'secondes');
+		},
+
+		progressBar: function(){
+			
+
 		}
 	};
 	app.init();

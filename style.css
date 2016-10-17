@@ -1,0 +1,66 @@
+body{
+	background-color: grey;
+}
+.Timer{
+	font-size: 55px;
+	margin-left: 450px;
+	width: 350px;
+	height: 100px;
+
+}
+.BTN{
+	margin-top: 160px;
+	margin-left: 450px;
+}
+.setSecondes {
+	font-size: 30px;
+	margin-top: 50px;
+	margin-left: 450px;
+	width:200px; 
+	height:50px;
+}
+#setTime{
+	font
+	margin-top: 10px;
+	width: 100px;
+	height: 60px;
+	background-color: blue;
+}
+.btnStop{
+	height: 50px;
+	width: 100px;
+	background-color: red;
+}
+.btnStart{
+	height: 50px;
+	width: 100px;
+	background-color: green;
+}
+.btnReset{
+	height: 50px;
+	width: 100px;
+}
+.btnClear{
+	background-color: yellow;
+	height: 50px;
+	width: 100px;
+}
+#title{
+	color: white;
+	font-size: 50px;
+	margin-top: 50px;
+	margin-left: 450px;
+}
+
+#border{
+margin-top: 30px;
+	height: 50px;
+	width: 100%;
+	border: solid red 4px;
+}
+#loading{
+	text-align: center;
+	height: 50px;
+	width: 100%;
+	background-color: green;
+}
