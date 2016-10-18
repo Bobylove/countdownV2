@@ -3,37 +3,39 @@ $(document).ready(function(){
 
 	var timer =90;
 	var intervalID=null;
-
 	window.app = {
 
+
 		init: function(){
-			app.lisnteners();
+			var self = this ;
+			this.lisnteners();
 		},
 		lisnteners: function(){
-			$('#setTime').on('click', app.getTime);
-			$('.btnStart').on('click', app.start);
-			$('.btnStop').on('click', app.stop);
-			$('.btnReset').on('click',app.reset);
-			$('.btnClear').on('click',app.clear);
+			$('#setTime').on('click', this.getTime.bind(this));
+			$('.btnStart').on('click', this.start.bind(this));
+			$('.btnStop').on('click', this.stop.bind(this));
+			$('.btnReset').on('click',this.reset.bind(this));
+			$('.btnClear').on('click',this.clear.bind(this));
 		},
 
 		start: function(){
-			app.intervalID = setInterval(app.decrement, 1000);
+			clearInterval(this.intervalID);
+			this.intervalID = setInterval(this.decrement, 1000);
 			app.progressBar();
 		},
 
 		stop: function(){
-			clearInterval(app.intervalID);
+			clearInterval(this.intervalID);
 		},
 		clear: function(){
-			app.stop();
+			this.stop();
 			$('#putTime').text("1:30");
 			$('.setSecondes').val("");
 			timer = 90;
 		},
 
 		reset: function(){
-			app.stop();
+			this.stop();
 			$('#putTime').text($('.setSecondes').val() + ' ' + 'secondes');
 			timer = $('.setSecondes').val();
 		},
@@ -43,8 +45,9 @@ $(document).ready(function(){
 			var secondes= parseInt(timer-minutes*60, 10);
 			$('#putTime').text(minutes+ ':'+ secondes );
 			timer--;
+			app.progressBar();
 			if (timer=== -1){
-				app.stop(); 
+				this.stop(); 
 			}
 		},
 
@@ -56,8 +59,9 @@ $(document).ready(function(){
 		},
 
 		progressBar: function(){
-			
-
+			var progress = parseInt(app.timer*100 / app.secondes, 10);
+			$('#loading').css('width', progress + '%');
+			$('#border').text(progress + '%');
 		}
 	};
 	app.init();
