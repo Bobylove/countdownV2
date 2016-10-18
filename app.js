@@ -40,7 +40,7 @@ $(document).ready(function(){
 
 		reset: function(){
 			this.stop();
-			$('#putTime').text($('.setSecondes').val() + ' ' + 'secondes');
+			$('#putTime').text($('.setSecondes').val());
 			timer = $('.setSecondes').val();
 			percent = 100;
 		},
@@ -60,7 +60,7 @@ $(document).ready(function(){
 			var minutes = 0;
 			var secondes= parseInt($('.setSecondes').val(),10);
 			timer = parseInt(minutes*60 + secondes ); 
-			$('#putTime').text($('.setSecondes').val() + ' ' + 'secondes');
+			$('#putTime').text($('.setSecondes').val());
 			timermax = timer;
 		},
 
