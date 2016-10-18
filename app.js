@@ -1,12 +1,14 @@
 "use strict";
 $(document).ready(function(){
-
+	var percent = 100;
 	var timer =90;
+	var timermax =null;
 	var intervalID=null;
 	window.app = {
 
 
 		init: function(){
+			var progress = parseInt(app.timer*100 / app.secondes, 10);
 			var self = this ;
 			this.lisnteners();
 		},
@@ -32,36 +34,44 @@ $(document).ready(function(){
 			$('#putTime').text("1:30");
 			$('.setSecondes').val("");
 			timer = 90;
+			percent = 100;
+
 		},
 
 		reset: function(){
 			this.stop();
 			$('#putTime').text($('.setSecondes').val() + ' ' + 'secondes');
 			timer = $('.setSecondes').val();
+			percent = 100;
 		},
 
 		decrement: function(){
 			var minutes= parseInt(timer/60, 10); 
 			var secondes= parseInt(timer-minutes*60, 10);
 			$('#putTime').text(minutes+ ':'+ secondes );
-			timer--;
 			app.progressBar();
-			if (timer=== -1){
+			timer--;
+			if (timer=== 0){
 				this.stop(); 
 			}
 		},
 
 		getTime: function(){
 			var minutes = 0;
-			var secondes= $('.setSecondes').val();
+			var secondes= parseInt($('.setSecondes').val(),10);
 			timer = parseInt(minutes*60 + secondes ); 
 			$('#putTime').text($('.setSecondes').val() + ' ' + 'secondes');
+			timermax = timer;
 		},
 
 		progressBar: function(){
-			var progress = parseInt(app.timer*100 / app.secondes, 10);
+			var progress = parseInt(timer*100 / timermax, 10);
+			$('#percent').text(progress + '%');
 			$('#loading').css('width', progress + '%');
-			$('#border').text(progress + '%');
+			if (timer=== 0){
+				this.stop();
+			}
+			
 		}
 	};
 	app.init();
