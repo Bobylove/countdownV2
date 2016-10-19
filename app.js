@@ -33,8 +33,8 @@ $(document).ready(function(){
 			this.stop();
 			$('#putTime').text("1:30");
 			$('.setSecondes').val("");
-			timer = 90;
-			percent = 100;
+			timer;
+			
 
 		},
 
@@ -42,7 +42,7 @@ $(document).ready(function(){
 			this.stop();
 			$('#putTime').text($('.setSecondes').val());
 			timer = $('.setSecondes').val();
-			percent = 100;
+			percent;
 		},
 
 		decrement: function(){
@@ -70,9 +70,13 @@ $(document).ready(function(){
 			$('#loading').css('width', progress + '%');
 			if (timer=== 0){
 				this.stop();
+				$('#putTime').text("").append('<video autobuffer controls autoplay><source id="mp4" src="http://grochtdreis.de/fuer-jsfiddle/video/sintel_trailer-480.mp4" type="video/mp4"></video>');
 			}
 			
 		}
 	};
 	app.init();
 });
+
+
+
